@@ -17,8 +17,8 @@ namespace esphome {
             this->latch_pin_->digital_write(false);
             this->oe_pin_->setup();
             this->oe_pin_->digital_write(true);
-            this->reset_pin->setup();
-            this->reset_pin->digital_write(false);
+            this->reset_pin_->setup();
+            this->reset_pin_->digital_write(false);
             ESP_LOGCONFIG(TAG, "Setup completed!");
         }
 
