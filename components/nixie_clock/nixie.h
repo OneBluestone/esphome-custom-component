@@ -21,6 +21,7 @@ namespace esphome {
             void updateTime(esphome::time::ESPTime time);
 
         protected:
+            void send_8_bits(int value);
             GPIOPin *data_pin_;
             GPIOPin *clock_pin_;
             GPIOPin *latch_pin_;
