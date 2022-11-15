@@ -10,7 +10,7 @@ namespace esphome {
         public:
             NixieClockComponent(gpio::GPIOPin clock_pin, gpio::GPIOPin data_pin, gpio::GPIOPin latch_pin,
                                 gpio::GPIOPin oe_pin, gpio::GPIOPin reset_pin);
-
+            NixieClockComponent();
             void setup() override;
 
             void loop() override;
@@ -23,8 +23,6 @@ namespace esphome {
             GPIOPin *latch_pin_;
             GPIOPin *oe_pin_;
             GPIOPin *reset_pin_;
-        private:
-            NixieClockComponent();
         };
     }
 }
