@@ -1,12 +1,13 @@
 #include "esphome/core/log.h"
 #include "nixie.h"
 #include "esphome/components/time/real_time_clock.h"
+#include "esphome/core/gpio.h"
 
 namespace esphome {
     namespace nixie {
         static const char *TAG = "nixie_clock.nixie";
-        NixieClockComponent::NixieClockComponent(GPIOPin clock_pin, GPIOPin data_pin, GPIOPin latch_pin, GPIOPin oe_pin,
-                                                 GPIOPin reset_pin) {
+        NixieClockComponent::NixieClockComponent(gpio::GPIOPin clock_pin, gpio::GPIOPin data_pin, gpio::GPIOPin latch_pin, gpio::GPIOPin oe_pin,
+                                                 gpio::GPIOPin reset_pin) {
             clock_pin_ = clock_pin;
             data_pin_ = data_pin;
             latch_pin_ = latch_pin;
