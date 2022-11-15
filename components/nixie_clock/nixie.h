@@ -7,10 +7,11 @@ namespace esphome {
     namespace nixie {
         class NixieClockComponent : public Component {
         public:
-            NixieClockComponent(GPIOPin, GPIOPin, GPIOPin, GPIOPin, GPIOPin);
+            NixieClockComponent(GPIOPin clock_pin, GPIOPin data_pin, GPIOPin latch_pin, GPIOPin oe_pin,
+                                GPIOPin reset_pin);
             void setup() override;
             void loop() override;
-            void updateTime(ESPTime);
+            void updateTime(ESPTime time);
         protected:
             GPIOPin *data_pin_;
             GPIOPin *clock_pin_;
