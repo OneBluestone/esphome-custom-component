@@ -8,24 +8,24 @@ namespace esphome {
     namespace nixie {
         class NixieClockComponent : public Component {
         public:
-            NixieClockComponent(esphome::gpio::GPIOPin clock_pin,
-                                esphome::gpio::GPIOPin data_pin,
-                                esphome::gpio::GPIOPin latch_pin,
-                                esphome::gpio::GPIOPin oe_pin,
-                                esphome::gpio::GPIOPin reset_pin);
-            NixieClockComponent();
+            NixieClockComponent() = default;
             void setup() override;
-
             void loop() override;
+
+            void set_data_pin(GPIOPin *pin) { data_pin_ = pin; }
+            void set_clock_pin(GPIOPin *pin) { clock_pin_ = pin; }
+            void set_latch_pin(GPIOPin *pin) { latch_pin_ = pin; }
+            void set_oe_pin(GPIOPin *pin) { oe_pin_ = pin; }
+            void set_reset_pin(GPIOPin *pin) { oe_pin_ = pin; }
 
             void updateTime(esphome::time::ESPTime time);
 
         protected:
-            esphome::gpio::GPIOPin *data_pin_;
-            esphome::gpio::GPIOPin *clock_pin_;
-            esphome::gpio::GPIOPin *latch_pin_;
-            esphome::gpio::GPIOPin *oe_pin_;
-            esphome::gpio::GPIOPin *reset_pin_;
+            GPIOPin *data_pin_;
+            GPIOPin *clock_pin_;
+            GPIOPin *latch_pin_;
+            GPIOPin *oe_pin_;
+            GPIOPin *reset_pin_;
         };
     }
 }

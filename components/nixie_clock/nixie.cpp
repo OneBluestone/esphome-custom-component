@@ -6,17 +6,6 @@
 namespace esphome {
     namespace nixie {
         static const char *TAG = "nixie_clock.nixie";
-        NixieClockComponent::NixieClockComponent(esphome::gpio::GPIOPin clock_pin,
-                                                 esphome::gpio::GPIOPin data_pin,
-                                                 esphome::gpio::GPIOPin latch_pin,
-                                                 esphome::gpio::GPIOPin oe_pin,
-                                                 esphome::gpio::GPIOPin reset_pin) {
-            clock_pin_ = clock_pin;
-            data_pin_ = data_pin;
-            latch_pin_ = latch_pin;
-            oe_pin_ = oe_pin;
-            reset_pin_ = reset_pin;
-        }
 
         void NixieClockComponent::setup() {
             // initialize output pins
