@@ -2,6 +2,7 @@
 
 #include "esphome/core/component.h"
 #include "esphome/components/time/real_time_clock.h"
+#include "esphome/core/gpio.h"
 
 namespace esphome {
     namespace nixie {
