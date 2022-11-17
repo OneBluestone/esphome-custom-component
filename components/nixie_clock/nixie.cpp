@@ -1,5 +1,6 @@
 #include "esphome/core/log.h"
 #include "nixie.h"
+#include "esphome/components/time/real_time_clock.h"
 
 namespace esphome {
     namespace nixie {
