@@ -18,7 +18,7 @@ namespace esphome {
             void set_clock_pin(GPIOPin *pin) { clock_pin_ = pin; }
             void set_latch_pin(GPIOPin *pin) { latch_pin_ = pin; }
             void set_oe_pin(GPIOPin *pin) { oe_pin_ = pin; }
-            void set_reset_pin(GPIOPin *pin) { oe_pin_ = pin; }
+            void set_reset_pin(GPIOPin *pin) { reset_pin_ = pin; }
 
             void updateTime(esphome::time::ESPTime time);
 
