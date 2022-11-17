@@ -19,13 +19,15 @@ namespace esphome {
             this->reset_pin_->setup();
             this->reset_pin_->digital_write(false);
 
-
+            ESP_LOGCONFIG(TAG, "Setup Done!");
         }
 
         void NixieClockComponent::loop() {
+            ESP_LOGCONFIG(TAG, "Loop!");
         }
 
         void NixieClockComponent::updateTime(esphome::time::ESPTime time) {
+            ESP_LOGCONFIG(TAG, "UpdateTime!");
             send_8_bits(time.second);
             send_8_bits(time.minute);
             send_8_bits(time.hour);
