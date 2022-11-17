@@ -25,7 +25,7 @@ namespace esphome {
         }
 
         void NixieClockComponent::loop() {
-            ESPTime time = ESPTime.now();
+            esphome::time::ESPTime time = ESPTime.now();
 
             ESP_LOGCONFIG(TAG, "UpdateTime!");
             send_8_bits(time.second);
