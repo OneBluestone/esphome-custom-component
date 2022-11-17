@@ -17,8 +17,6 @@ namespace esphome {
             this->oe_pin_->digital_write(true);
             this->reset_pin_->setup();
             this->reset_pin_->digital_write(false);
-
-            ESP_LOGCONFIG(TAG, "Setup completed!");
         }
 
         void NixieClockComponent::loop() {
