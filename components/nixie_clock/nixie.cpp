@@ -22,11 +22,12 @@ namespace esphome {
 
             this->reset_pin_->setup();
             this->reset_pin_->digital_write(false);
+            this->clock_ = esphome::time::RealTimeClock::RealTimeClock();
         }
 
         void NixieClockComponent::loop() {
             ESP_LOGCONFIG(TAG, "UpdateTime!");
-            esphome::time::ESPTime timenow = esphome::time::RealTimeClock::now();
+            esphome::time::ESPTime timenow = this->clock_->now();
 
             send_8_bits(timenow.second);
             send_8_bits(timenow.minute);
