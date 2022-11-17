@@ -23,7 +23,7 @@ namespace esphome {
 
             this->reset_pin_->setup();
             this->reset_pin_->digital_write(false);
-            this->clock_ = new esphome::time::RealTimeClock::RealTimeClock();
+            this->clock_ = new esphome::time::RealTimeClock();
         }
 
         void NixieClockComponent::loop() {
