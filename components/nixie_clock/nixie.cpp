@@ -24,7 +24,9 @@ namespace esphome {
             this->reset_pin_->digital_write(false);
         }
 
-        void NixieClockComponent::updateTime(esphome::time::ESPTime time) {
+        void NixieClockComponent::loop() {
+            ESPTime time = ESPTime.now();
+
             ESP_LOGCONFIG(TAG, "UpdateTime!");
             send_8_bits(time.second);
             send_8_bits(time.minute);
@@ -33,6 +35,10 @@ namespace esphome {
             // pulse latch to activate new values
             this->latch_pin_->digital_write(true);
             this->latch_pin_->digital_write(false);
+        }
+
+        void NixieClockComponent::updateTime(esphome::time::ESPTime time) {
+
         }
 
         void NixieClockComponent::send_8_bits(int value) {

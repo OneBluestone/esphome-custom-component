@@ -9,6 +9,7 @@ namespace esphome {
         class NixieClockComponent : public Component {
         public:
             void setup() override;
+            void loop() override;
 
             void set_data_pin(GPIOPin *pin) { data_pin_ = pin; }
             void set_clock_pin(GPIOPin *pin) { clock_pin_ = pin; }
