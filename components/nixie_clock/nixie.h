@@ -8,11 +8,7 @@ namespace esphome {
     namespace nixie {
         class NixieClockComponent : public Component {
         public:
-            NixieClockComponent() {
-                ESP_LOGCONFIG("nixie_clock.nixie", "Constructor!");
-            }
             void setup() override;
-            void loop() override;
 
             void set_data_pin(GPIOPin *pin) { data_pin_ = pin; }
             void set_clock_pin(GPIOPin *pin) { clock_pin_ = pin; }
