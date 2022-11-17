@@ -8,24 +8,34 @@ namespace esphome {
         void NixieClockComponent::setup() {
             ESP_LOGCONFIG(TAG, "Setup!");
             // initialize output pins
+
             ESP_LOGCONFIG(TAG, "Clock!");
             this->clock_pin_->setup();
+
             ESP_LOGCONFIG(TAG, "Clock Write!");
             this->clock_pin_->digital_write(false);
+
             ESP_LOGCONFIG(TAG, "Data!");
             this->data_pin_->setup();
+
             ESP_LOGCONFIG(TAG, "Data Write!");
             this->data_pin_->digital_write(false);
+
             ESP_LOGCONFIG(TAG, "Latch!");
             this->latch_pin_->setup();
+
             ESP_LOGCONFIG(TAG, "Latch Write!");
             this->latch_pin_->digital_write(false);
+
             ESP_LOGCONFIG(TAG, "OE!");
             this->oe_pin_->setup();
+
             ESP_LOGCONFIG(TAG, "OE Write!");
             this->oe_pin_->digital_write(true);
+
             ESP_LOGCONFIG(TAG, "Reset!");
             this->reset_pin_->setup();
+
             ESP_LOGCONFIG(TAG, "Reset Write!");
             this->reset_pin_->digital_write(false);
 

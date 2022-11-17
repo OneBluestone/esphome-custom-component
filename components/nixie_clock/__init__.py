@@ -35,14 +35,14 @@ async def to_code(config):
     cg.add(var.set_clock_pin(clock_pin))
 
     data_pin = await cg.gpio_pin_expression(config[CONF_DATA_PIN])
-    cg.add(var.set_clock_pin(data_pin))
+    cg.add(var.set_data_pin(data_pin))
 
     latch_pin = await cg.gpio_pin_expression(config[CONF_LATCH_PIN])
-    cg.add(var.set_clock_pin(latch_pin))
+    cg.add(var.set_latch_pin(latch_pin))
 
     oe_pin = await cg.gpio_pin_expression(config[CONF_OE_PIN])
-    cg.add(var.set_clock_pin(oe_pin))
+    cg.add(var.set_oe_pin(oe_pin))
 
     reset_pin = await cg.gpio_pin_expression(config[CONF_RESET_PIN])
-    cg.add(var.set_clock_pin(reset_pin))
+    cg.add(var.set_reset_pin(reset_pin))
 
