@@ -6,6 +6,7 @@ namespace esphome {
         static const char *TAG = "nixie_clock.nixie";
 
         void NixieClockComponent::setup() {
+            ESP_LOGCONFIG(TAG, "Setup!");
             // initialize output pins
             this->clock_pin_->setup();
             this->clock_pin_->digital_write(false);
@@ -17,6 +18,8 @@ namespace esphome {
             this->oe_pin_->digital_write(true);
             this->reset_pin_->setup();
             this->reset_pin_->digital_write(false);
+
+
         }
 
         void NixieClockComponent::loop() {
