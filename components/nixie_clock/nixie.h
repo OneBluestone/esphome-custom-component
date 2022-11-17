@@ -9,7 +9,7 @@ namespace esphome {
         class NixieClockComponent : public Component {
         public:
             NixieClockComponent() {
-                ESP_LOGCONFIG(TAG, "Constructor!");
+                ESP_LOGCONFIG("nixie_clock.nixie", "Constructor!");
             }
             void setup() override;
             void loop() override;
