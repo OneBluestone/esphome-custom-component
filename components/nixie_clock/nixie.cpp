@@ -22,15 +22,17 @@ namespace esphome {
 
             this->reset_pin_->setup();
             this->reset_pin_->digital_write(false);
+
+            this->clock_->esphome::time::RealTimeClock();
         }
 
         void NixieClockComponent::loop() {
-            esphome::time::ESPTime time = esphome::time::ESPTime.now();
-
             ESP_LOGCONFIG(TAG, "UpdateTime!");
-            send_8_bits(time.second);
-            send_8_bits(time.minute);
-            send_8_bits(time.hour);
+            ESPTime timenow = this->clock_.now();
+
+            send_8_bits(timenow.second);
+            send_8_bits(timenow.minute);
+            send_8_bits(timenow.hour);
 
             // pulse latch to activate new values
             this->latch_pin_->digital_write(true);
