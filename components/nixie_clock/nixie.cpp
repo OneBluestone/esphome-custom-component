@@ -1,6 +1,5 @@
 #include "esphome/core/log.h"
 #include "nixie.h"
-#include "esphome/components/time/real_time_clock.h"
 
 namespace esphome {
     namespace nixie {
@@ -23,24 +22,17 @@ namespace esphome {
 
             this->reset_pin_->setup();
             this->reset_pin_->digital_write(false);
-            this->clock_ = new esphome::time::RealTimeClock::RealTimeClock();
         }
 
-        void NixieClockComponent::loop() {
+        void NixieClockComponent::updateTime(esphome::time::ESPTime time) {
             ESP_LOGCONFIG(TAG, "UpdateTime!");
-            esphome::time::ESPTime timenow = this->clock_->now();
-
-            send_8_bits(timenow.second);
-            send_8_bits(timenow.minute);
-            send_8_bits(timenow.hour);
+            send_8_bits(time.second);
+            send_8_bits(time.minute);
+            send_8_bits(time.hour);
 
             // pulse latch to activate new values
             this->latch_pin_->digital_write(true);
             this->latch_pin_->digital_write(false);
-        }
-
-        void NixieClockComponent::updateTime(esphome::time::ESPTime time) {
-
         }
 
         void NixieClockComponent::send_8_bits(int value) {
