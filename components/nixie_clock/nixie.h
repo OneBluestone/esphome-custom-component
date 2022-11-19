@@ -26,7 +26,6 @@ namespace esphome {
             GPIOPin *latch_pin_;
             GPIOPin *oe_pin_;
             GPIOPin *reset_pin_;
-            RealTimeClock *clock_;
         };
     }
 }
