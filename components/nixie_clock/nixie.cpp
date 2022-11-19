@@ -38,13 +38,11 @@ namespace esphome {
         void NixieClockComponent::send_8_bits(int value) {
             for (int i = 7; i >= 0; i--) {
                 bool b = (value >> i)  & 1;
-                ESP_LOGCONFIG(TAG, b ? "1" : "0");
 
                 this->data_pin_->digital_write(b);
                 this->clock_pin_->digital_write(true);
                 this->clock_pin_->digital_write(false);
             }
-            ESP_LOGCONFIG(TAG, "+");
         }
 
     }
